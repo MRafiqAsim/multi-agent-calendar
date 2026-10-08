@@ -1,0 +1,22 @@
+# Secrets and Google OAuth tokens — never commit
+.env
+token.pickle
+token.json
+credentials*.json
+client_secret*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Re-include docs (a global gitignore may exclude *.md)
+!README.md
+!docs/

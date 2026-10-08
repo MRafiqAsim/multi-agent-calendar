@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lint & import check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+      - run: uv sync --frozen --group dev
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - name: Import every agent module
+        env:
+          AZURE_OPENAI_API_KEY: ci-placeholder
+          AZURE_OPENAI_ENDPOINT: https://example.openai.azure.com/
+        run: uv run python -c "import calendar_agents, app"

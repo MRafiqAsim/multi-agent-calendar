@@ -1,0 +1,46 @@
+[project]
+name = "multi-agent-calendar"
+version = "0.1.0"
+description = "Multi-Agent Calendar Management System: manage Google Calendar through conversation, with six specialised agents, image-based event import and conflict resolution."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Muhammad Rafiq" }]
+keywords = ["multi-agent", "ai-agents", "openai-agents", "azure-openai", "google-calendar", "gradio", "llm"]
+dependencies = [
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "openai>=1.3.0",
+    "openai-agents>=0.0.3",
+    "requests>=2.28.0",
+    "Pillow>=10.0.0",
+    "pytesseract>=0.3.10",
+    "pdf2image>=1.16.0",
+    "PyMuPDF>=1.23.0",
+    "google-auth>=2.22.0",
+    "google-auth-oauthlib>=1.1.0",
+    "google-auth-httplib2>=0.1.0",
+    "google-api-python-client>=2.100.0",
+    "gradio>=4.0.0",
+    "pandas>=2.0.0",
+    "python-dateutil>=2.8.2",
+    "pytz>=2023.3",
+]
+
+[project.urls]
+Repository = "https://github.com/MRafiqAsim/multi-agent-calendar"
+
+[dependency-groups]
+dev = ["ruff>=0.6", "pre-commit>=3.7"]
+notebook = ["ipykernel>=6.0.0", "jupyter>=1.0.0"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501"]
